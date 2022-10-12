@@ -18,14 +18,14 @@
 <body>
 
     <div class="container-fluid" style="text-align: center;">
-        <h1 style="font-family: OCR A Std, monospace">Achyutha Reddy Gantla Reaction Timer</h1>
+        <h1 style="font-family:Georgia, 'Times New Roman', Times, serif">Achyutha Reddy Gantla Reaction Timer</h1>
     </div>
     <br>
     <div class="d-flex flex-column border-light bd-highlight" style="text-align: center;">
-        <div class="col-md-12 text-align:center" style="font-family: Chalkduster, fantasy; color: darkred">
+        <div class="col-md-12 text-align:center" style="font-family:'Times New Roman', Times, serif; color: rgb(63, 0, 139)">
             <p id="target">Your time</p>
         </div>
-        <div class="col-md-12 text-align:center" style="font-family: Chalkduster, fantasy; color: purple">
+        <div class="col-md-12 text-align:center" style="font-family:'Times New Roman', Times, serif; color: rgb(128, 77, 0)">
             <p id="countdown">Count
         </div>
     </div>
@@ -33,7 +33,7 @@
     <br>
     <div class="container-fluid text-center text-align: align-items-center">
         <button type="button" class="btn btn-success" onclick="startTime()">Start Timer</button>
-        <button type="button" class="btn btn-secondary" onclick="recordReact()"> React Now </button>
+        <button type="button" class="btn btn-danger" onclick="recordReact()"> React Now </button>
     </div>
     <script>
         let myTime;
@@ -41,7 +41,23 @@
             myTime = Date.now();
             console.log(myTime);
         }
-
+        function startTime() {
+            let mytime = Date.now();
+            for (let num = 0; num < 4; num++) {
+                setTimeout(() => {
+                    document.getElementById("countdown").innerHTML = num;
+                },(3 - num) * 1000);
+            }
+            setTimeout(() => {
+                if (myTime==undefined) {
+                    document.getElementById("target").innerHTML = "Too Slow";
+                }
+                else {
+                    var buttonTime = Date.now();
+                    document.getElementById("target").innerHTML = "Time was: " + (buttonTime - myTime);
+                }
+            }, 3000);
+        }
         
     </script>
 
