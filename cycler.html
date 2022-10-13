@@ -54,7 +54,8 @@
     </div>
     <div class="container text-center">
         <button onclick="makeNewDiv()" type="submit" class="btn btn-info">Add value</button>
-        
+        <button onclick="get()" type="submit" class="btn btn-info">Get</button>
+        <button onclick="spin()" type="submit" class="btn btn-info">Spin</button>
     </div>
     <script>
         function makeNewDiv() {
@@ -67,7 +68,23 @@
                 container.appendChild(div_element);
             }
             
-           
+            function get() {
+                let cycle_item = document.getElementsByClassName("cycler");
+                if (cycle_item.length > 0) {
+                    cycle_item[cycle_item.length - 1].remove();
+                }
+            }
+    
+            function spin() {
+            let cycle_item = document.getElementsByClassName("cycler");
+            if (cycle_item.length > 1) {
+                removed_items = cycle_item[cycle_item.length - 1];
+                cycle_item[cycle_item.length - 1].remove();
+
+                var div_containers = document.getElementById("target");
+                div_containers.insertBefore(removed_items, div_containers.firstChild)
+            }
+        }
     </script>
 </body>
 </html>
