@@ -67,14 +67,12 @@
                 let container = document.getElementById('target')
                 container.appendChild(div_element);
             }
-            
             function get() {
                 let cycle_item = document.getElementsByClassName("cycler");
                 if (cycle_item.length > 0) {
                     cycle_item[cycle_item.length - 1].remove();
                 }
             }
-    
             function spin() {
             let cycle_item = document.getElementsByClassName("cycler");
             if (cycle_item.length > 1) {
