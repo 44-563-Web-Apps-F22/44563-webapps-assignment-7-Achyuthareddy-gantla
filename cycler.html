@@ -56,6 +56,7 @@
         <button onclick="makeNewDiv()" type="submit" class="btn btn-info">Add value</button>
         <button onclick="get()" type="submit" class="btn btn-info">Get</button>
         <button onclick="spin()" type="submit" class="btn btn-info">Spin</button>
+        <button onclick="swap()" type="submit" class="btn btn-info">swap</button>
     </div>
     <script>
         function makeNewDiv() {
@@ -83,6 +84,19 @@
                 div_containers.insertBefore(removed_items, div_containers.firstChild)
             }
         }
+        function swap() {
+                let cyclerItems = document.getElementsByClassName("cycler")
+                let container = document.getElementById("target")
+                let a = Math.floor(Math.random() * cyclerItems.length)
+                let b = Math.floor(Math.random() * cyclerItems.length)
+                let firstInnerText = document.getElementsByClassName("cycler")[a]
+                let secondInnerText = document.getElementsByClassName("cycler")[b]
+                if(cyclerItems.length > 1) {
+                    let temp = firstInnerText.innerHTML
+                    firstInnerText.innerHTML = secondInnerText.innerHTML
+                    secondInnerText.innerHTML = temp
+                }}
+        
     </script>
 </body>
 </html>
